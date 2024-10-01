@@ -1,0 +1,23 @@
+
+{% extends 'anotacoes/base.html' %}
+{% load crispy_forms_tags %}
+{% block conteudo %}
+
+
+<div class="container">
+    <form method="POST" class="delete-form">
+        {% csrf_token %}
+        {{formulario | crispy}}
+        <button class="btn btn-primary" type="submit">Criar novo usuario</button>
+        <a href="{% url 'login' %}">Já possui uma conta? Entre aqui</a>
+        
+    </form>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

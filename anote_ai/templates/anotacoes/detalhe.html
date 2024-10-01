@@ -1,0 +1,23 @@
+
+{% extends 'anotacoes/base.html' %}
+{% block conteudo %}
+   <h1 style="text-align: center;">Detalhe da Anotação</h1>
+<div class="container">
+    <table class="table table-hover table-bordered">
+        <tr style="background-color: navy; color: white;">
+            <th>Id</th>
+             <th>Titulo</th>
+            <th>Data</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>{{dados.id}}</td>
+            <td>{{dados.titulo}}</td>
+            <td>{{dados.data}}</td>
+            <td>{{dados.status}}</td>
+        </tr>
+    </table>
+</div>
+   
+    {% endblock %}
+

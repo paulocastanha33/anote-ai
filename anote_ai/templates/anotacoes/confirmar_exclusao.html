@@ -1,0 +1,91 @@
+{% extends 'anotacoes/base.html' %}
+{% block conteudo %}
+<style>
+    /* Estilos gerais */
+    .container {
+        width: 100%;
+        max-width: 500px;
+        margin: 50px auto; /* Centraliza verticalmente na página */
+        padding: 20px;
+        background-color: #ffffff; /* Fundo branco para contraste */
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Centraliza o texto */
+    }
+
+    /* Estilo do título */
+    h1 {
+        font-size: 1.8em; /* Aumenta o tamanho da fonte */
+        margin-bottom: 20px;
+        color: #333; /* Cor escura para o texto */
+    }
+
+    /* Estilo do formulário */
+    .delete-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Alinha os itens ao centro */
+    }
+
+    /* Estilo do grupo de botões */
+    .button-group {
+        display: flex;
+        justify-content: space-between; /* Espaça os botões */
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Estilos dos botões */
+    .btn {
+        font-size: 1em;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+        transition: background-color 0.3s, transform 0.2s; /* Transições suaves */
+    }
+
+    /* Botão Cancelar */
+    .btn-cancel {
+        background-color: #6c757d; /* Cor cinza */
+        margin-right: 10px;
+    }
+
+    .btn-cancel:hover {
+        background-color: #5a6268; /* Cor ao passar o mouse */
+        transform: translateY(-2px); /* Efeito de leve elevação */
+    }
+
+    /* Botão Confirmar */
+    .btn-confirm {
+        background-color: #dc3545; /* Cor vermelha */
+    }
+
+    .btn-confirm:hover {
+        background-color: #c82333; /* Cor ao passar o mouse */
+        transform: translateY(-2px); /* Efeito de leve elevação */
+    }
+
+    /* Estilo para links dentro dos botões */
+    button a {
+        color: white;
+        text-decoration: none;
+    }
+
+    button a:hover {
+        text-decoration: underline; /* Sublinhado ao passar o mouse */
+    }
+</style>
+
+<div class="container">
+    <form method="POST" class="delete-form">
+        {% csrf_token %}
+        <h1>Confirmar exclusão do item: {{ item.titulo }}</h1>
+        <div class="button-group">
+            <button class="btn btn-cancel"><a href="{% url 'anotacoes' %}">Cancelar</a></button>
+            <button class="btn btn-confirm" type="submit">Confirmar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
